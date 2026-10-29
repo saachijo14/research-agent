@@ -10,7 +10,7 @@ load_dotenv()
 
 T = TypeVar("T", bound=BaseModel)
 
-MODEL = os.getenv("LLM_MODEL", "gemini-3.5-flash")
+MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b")
 
 # Rough usage counter, used for cost/latency reporting in eval.
 usage = {"calls": 0, "prompt_tokens": 0, "completion_tokens": 0}

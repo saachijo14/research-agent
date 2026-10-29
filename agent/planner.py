@@ -17,6 +17,8 @@ Rules:
 - preferred_tool = "github_stats" ONLY for a sub-question about one specific open-source project's popularity,
   license or maintenance activity. Then set github_repo to "owner/repo" (only if you are confident it exists).
   For anything else use "web_search" and leave github_repo null.
+- Always use the original upstream repository (the one the project's own organisation owns, e.g. "milvus-io/milvus"),
+  never a fork or mirror.
 - For comparisons of several open-source projects: one github_stats sub-question per project, plus
   one or two web_search sub-questions on qualitative differences (features, tradeoffs, fit for the use case).
 - done_criteria: one sentence describing what evidence is enough to answer the question.

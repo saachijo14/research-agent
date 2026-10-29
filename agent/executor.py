@@ -20,7 +20,7 @@ URLS_PER_SUBQUESTION = 2
 class Budget:
     """Hard limits so a run can never loop or spend without bound."""
     max_tool_calls: int = 24
-    max_seconds: int = 150
+    max_seconds: int = 240
     tool_calls: int = 0
     started: float = field(default_factory=time.time)
 

@@ -54,6 +54,10 @@ class SkepticJudgement(BaseModel):
     verdict: Literal["survived", "weakened", "contradicted"]
     note: str
 
+class Finding(BaseModel):
+    text: str
+    claim_ids: list[str]
+
 
 # ---------- Final output ----------
 class FinalAnswer(BaseModel):

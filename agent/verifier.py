@@ -209,7 +209,11 @@ def claims_from_github(data: dict, sub_id: str, next_id: Callable[[], str]) -> l
             f"GitHub API: stargazers_count={data['stars']}, forks_count={data['forks']}",
         ),
         (
-            f"{repo} is released under the {data.get('license') or 'no declared'} license.",
+            (
+                f"{repo} is released under the {data['license']} license."
+                if data.get("license") not in (None, "NOASSERTION")
+                else f"{repo}: GitHub could not auto-detect a standard license; check the repository's LICENSE file."
+            ),
             f"GitHub API: license={data.get('license')}",
         ),
         (
