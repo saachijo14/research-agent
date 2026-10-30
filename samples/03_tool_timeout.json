@@ -1,0 +1,39 @@
+{
+  "answer": {
+    "question": "Compare the top 3 open-source vector databases for a startup building RAG products.",
+    "short_answer": "Insufficient verified evidence to answer this question reliably.",
+    "key_findings": [],
+    "sources": [],
+    "confidence": "Low",
+    "confidence_score": 0.0,
+    "limitations": [
+      "GitHub lookup failed for 'milvus-io/milvus' (TimeoutError: simulated tool timeout); fell back to web search for q1.",
+      "Search failed for q1 (TimeoutError: simulated tool timeout); no evidence gathered.",
+      "GitHub lookup failed for 'semitechnologies/weaviate' (TimeoutError: simulated tool timeout); fell back to web search for q2.",
+      "Search failed for q2 (TimeoutError: simulated tool timeout); no evidence gathered.",
+      "GitHub lookup failed for 'qdrant/qdrant' (TimeoutError: simulated tool timeout); fell back to web search for q3.",
+      "Search failed for q3 (TimeoutError: simulated tool timeout); no evidence gathered.",
+      "Search failed for q4 (TimeoutError: simulated tool timeout); no evidence gathered.",
+      "Search failed for q5 (TimeoutError: simulated tool timeout); no evidence gathered."
+    ],
+    "assumptions": [],
+    "next_steps": [
+      "Rephrase the question with specific entity names (products, companies, repos).",
+      "Open the trace file to see which tools failed or which claims were dropped.",
+      "Check official documentation manually for the entities involved."
+    ]
+  },
+  "ledger": [],
+  "stats": {
+    "latency_s": 12.0,
+    "tool_calls": 8,
+    "llm_calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "est_cost_usd": 0.0,
+    "confidence_breakdown": {
+      "usable_claims": 0
+    }
+  },
+  "trace_file": "traces\\20261030-144256.jsonl"
+}

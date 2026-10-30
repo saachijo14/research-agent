@@ -1,0 +1,38 @@
+{
+  "answer": {
+    "question": "What is the market share of the Zorblax9981 database in Antarctica?",
+    "short_answer": "Insufficient verified evidence to answer this question reliably.",
+    "key_findings": [],
+    "sources": [],
+    "confidence": "Low",
+    "confidence_score": 0.0,
+    "limitations": [
+      "No verified claims were found for q1: \"What is the Zorblax9981 database, including its primary features and target use cases?\"",
+      "No verified claims were found for q2: \"What is the global market share of the Zorblax9981 database according to recent database market reports?\"",
+      "Could not read https://in.investing.com/equities/antarctica-ltd (HTTPStatusError: Client error '403 Forbidden' for url 'https://in.investing.com/equities/antarctica-ltd'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403).",
+      "No verified claims were found for q3: \"What is the market share of the Zorblax9981 database specifically in Antarctica, based on any regional usage statistics or surveys?\"",
+      "Could not extract claims from https://www.grandviewresearch.com/industry-analysis/cloud-database-dbaas-market-report.",
+      "Could not extract claims from https://tracxn.com/d/sectors/open-databases/__ngIvH-pQChogOPNt5V9mjc1GHyqahD4K0W-1k_ZwhKg.",
+      "No verified claims were found for q4: \"What are the overall database usage patterns and market share distribution among databases in Antarctica?\""
+    ],
+    "assumptions": [],
+    "next_steps": [
+      "Rephrase the question with specific entity names (products, companies, repos).",
+      "Open the trace file to see which tools failed or which claims were dropped.",
+      "Check official documentation manually for the entities involved."
+    ]
+  },
+  "ledger": [],
+  "stats": {
+    "latency_s": 34.8,
+    "tool_calls": 12,
+    "llm_calls": 6,
+    "prompt_tokens": 10587,
+    "completion_tokens": 658,
+    "est_cost_usd": 0.0,
+    "confidence_breakdown": {
+      "usable_claims": 0
+    }
+  },
+  "trace_file": "traces\\20261030-144132.jsonl"
+}
