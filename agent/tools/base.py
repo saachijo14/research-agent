@@ -42,7 +42,7 @@ def run_tool(
             last_err = f"{type(e).__name__}: {e}"
             if attempt < retries:
                 time.sleep(0.5 * (2 ** attempt))
-
+#returns tool result
     return ToolResult(
         ok=False,
         error=last_err,
