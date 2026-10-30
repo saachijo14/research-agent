@@ -34,10 +34,13 @@ Rules:
 - assumptions: how you interpreted the question; if it asked for the "top N", say how the entities were chosen
   if the claims do not show a ranking method.
 - limitations: gaps in the evidence that a reader should know about.
-- next_steps: 2 to 4 concrete actions to verify or extend the answer."""
+- next_steps: 2 to 4 concrete actions to verify or extend the answer.
+- can_answer: set to false if the claims do not directly address the specific entity or topic named in the
+  question (for example, the question names a product that none of the claims mention). Then leave key_findings empty."""
 
 
 class SynthDraft(BaseModel):
+    can_answer: bool = True
     short_answer: str
     key_findings: list[Finding]
     assumptions: list[str] = []
@@ -98,6 +101,8 @@ def synthesize(question: str, claims: list[Claim], limitations: list[str],
     if not usable:
         return insufficient_answer(question, notes, score, bucket)
 
+    degraded = False
+
     ordered = sorted(usable, key=lambda c: (c.source_tier, int(c.id[1:])))[:MAX_CLAIMS_IN_PROMPT]
     prompt = f"Research question: {question}\n\nVERIFIED CLAIMS:\n" + "\n".join(_fmt(c) for c in ordered)
     if disputed:
@@ -109,12 +114,18 @@ def synthesize(question: str, claims: list[Claim], limitations: list[str],
         draft = llm_json(SYSTEM, prompt, SynthDraft)
     except Exception as e:  # noqa: BLE001
         # Graceful degradation: show the verified evidence without prose synthesis.
+        degraded = True
         notes.append(f"The summarising step failed ({type(e).__name__}); verified claims are listed unsynthesised.")
         draft = SynthDraft(
             short_answer="The summarising step failed, so the verified evidence is listed below without synthesis.",
             key_findings=[Finding(text=c.text, claim_ids=[c.id]) for c in ordered[:8]],
             next_steps=["Re-run the query.", "Open the trace file for the failure details."],
         )
+
+
+    if not draft.can_answer:
+        notes.append("The gathered evidence did not address the specific topic of the question.")
+        return insufficient_answer(question, notes, score, bucket)
 
     valid = {c.id for c in ordered}
     by_id = {c.id: c for c in ordered}
@@ -136,6 +147,7 @@ def synthesize(question: str, claims: list[Claim], limitations: list[str],
         top = ordered[:8]
         findings = [f"{c.text} [{c.id}]" for c in top]
         cited = [c.id for c in top]
+        degraded = True
 
     sources_map: dict[str, list[str]] = {}
     for cid in dict.fromkeys(cited):
@@ -148,6 +160,9 @@ def synthesize(question: str, claims: list[Claim], limitations: list[str],
     short = CITE_GROUP.sub("", draft.short_answer).strip()
     if bucket == "Low":
         short = "Low confidence - the evidence is thin or only partly verified. " + short
+
+    if degraded:
+        bucket, score = "Low", min(score, 0.35)   # an answer without synthesis cannot claim more
 
     return FinalAnswer(
         question=question,

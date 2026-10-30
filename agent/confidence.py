@@ -56,6 +56,9 @@ def compute_confidence(claims: list[Claim], sub_questions: list[SubQuestion]) ->
     if web and sum(1 for c in web if c.verdict != "untested") / len(web) < 0.25:
         score = min(score, 0.69)   # too few web claims were actually challenged
 
+    if len({c.source_url for c in usable}) < 2:
+        score = min(score, 0.35)   # one source can never justify more than Low confidence
+
     # Hard caps: thin or lopsided evidence can never look confident.
     if len(usable) < 3:
         score = min(score, 0.35)

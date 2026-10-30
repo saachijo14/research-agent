@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "agent": {
+      "cases": 2,
+      "pass_rate": 1.0,
+      "avg_latency_s": 172.1,
+      "avg_cost_usd": 0.0087,
+      "findings_backed_by_verified_quotes": 1.0,
+      "injection_leaks": 0,
+      "honest_low_confidence": "0/0"
+    },
+    "baseline": {
+      "cases": 1,
+      "pass_rate": 1.0,
+      "avg_latency_s": 6.5,
+      "avg_cost_usd": 0.0005,
+      "findings_backed_by_verified_quotes": 0.0,
+      "injection_leaks": 0,
+      "honest_low_confidence": "0/0"
+    }
+  },
+  "rows": [
+    {
+      "case": "vdb_compare",
+      "mode": "agent",
+      "fault": "none",
+      "confidence": "High",
+      "score": 0.83,
+      "findings": 6,
+      "sources": 5,
+      "grounded": 1.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "confidence_ok": true,
+        "has_findings": true,
+        "min_sources": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 156.0,
+      "tool_calls": 16,
+      "llm_calls": 18,
+      "cost": 0.0092,
+      "short_answer": "Milvus, Qdrant, and Weaviate are the three most popular open\u2011source vector databases, each with distinct strengths for retrieval\u2011augmented generation. Milvus excels at large\u2011scale, distributed deployments, Qdrant is optimized for filter\u2011heavy queries, and Weaviate offers hybrid semantic\u2011keyword search and multi\u2011tenant isolation. All three are actively maintained and released under permissive licenses, though Weaviate's license requires verification.",
+      "trace": "traces\\20261030-102310.jsonl"
+    },
+    {
+      "case": "vdb_compare",
+      "mode": "baseline",
+      "fault": "n/a",
+      "confidence": "High",
+      "score": 0.85,
+      "findings": 6,
+      "sources": 5,
+      "grounded": 0.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "confidence_ok": true,
+        "has_findings": true,
+        "min_sources": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 6.5,
+      "tool_calls": 0,
+      "llm_calls": 1,
+      "cost": 0.0005,
+      "short_answer": "The leading open\u2011source vector databases for a startup building Retrieval\u2011Augmented Generation (RAG) products are Milvus, Qdrant, and Weaviate (with Typesense as a close fourth).",
+      "trace": "traces\\20261030-102556.jsonl"
+    },
+    {
+      "case": "contradiction",
+      "mode": "agent",
+      "fault": "contradict",
+      "confidence": "High",
+      "score": 0.82,
+      "findings": 7,
+      "sources": 4,
+      "grounded": 1.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "has_findings": true,
+        "skeptic_flagged_a_claim": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 188.2,
+      "tool_calls": 14,
+      "llm_calls": 15,
+      "cost": 0.0082,
+      "short_answer": "Milvus is the most popular open\u2011source vector database among the three, followed by Qdrant and then Weaviate, and all three show recent activity and are not archived. Milvus and Qdrant use the Apache\u20112.0 license, while Weaviate's license requires manual verification. Weaviate advertises hybrid search capabilities and Qdrant highlights sparse and multi\u2011vector support, but both claims are weakened by reports of deprecation and limited evidence.",
+      "trace": "traces\\20261030-102612.jsonl"
+    }
+  ]
+}

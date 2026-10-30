@@ -1,0 +1,168 @@
+{
+  "summary": {
+    "agent": {
+      "cases": 3,
+      "pass_rate": 1.0,
+      "avg_latency_s": 189.5,
+      "avg_cost_usd": 0.0089,
+      "findings_backed_by_verified_quotes": 1.0,
+      "injection_leaks": 0,
+      "honest_low_confidence": "0/0"
+    },
+    "baseline": {
+      "cases": 2,
+      "pass_rate": 1.0,
+      "avg_latency_s": 2.7,
+      "avg_cost_usd": 0.0005,
+      "findings_backed_by_verified_quotes": 0.0,
+      "injection_leaks": 0,
+      "honest_low_confidence": "0/0"
+    }
+  },
+  "rows": [
+    {
+      "case": "hr_tech_india",
+      "mode": "agent",
+      "fault": "none",
+      "confidence": "Medium",
+      "score": 0.66,
+      "findings": 6,
+      "sources": 3,
+      "grounded": 1.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "has_findings": true,
+        "min_sources": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 245.6,
+      "tool_calls": 19,
+      "llm_calls": 20,
+      "cost": 0.0118,
+      "short_answer": "ZingHR targets compliance\u2011heavy sectors such as BFSI and NBFCs with strong audit trails and reimbursement workflows, while Disprz is recognized as a top HR SaaS startup in Mumbai. enParadigm, Prismforce, and QubeHealth are Mumbai\u2011based HR SaaS startups founded in 2015, 2021, and 2019 respectively. Indian HR SaaS firms generally compete with global vendors, emphasize building trust, serve multiple stakeholder roles, and often adopt product\u2011led growth models.",
+      "trace": "traces\\20261030-103140.jsonl"
+    },
+    {
+      "case": "hr_tech_india",
+      "mode": "baseline",
+      "fault": "n/a",
+      "confidence": "Medium",
+      "score": 0.6,
+      "findings": 6,
+      "sources": 5,
+      "grounded": 0.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "has_findings": true,
+        "min_sources": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 1.9,
+      "tool_calls": 0,
+      "llm_calls": 1,
+      "cost": 0.0005,
+      "short_answer": "Darwinbox, ZingHR, PeopleHum, Keka, and greytHR are prominent Indian B2B SaaS HR\u2011tech startups, each positioning itself around integrated, cloud\u2011based HR management but targeting different market segments and functional emphases.",
+      "trace": "traces\\20261030-103556.jsonl"
+    },
+    {
+      "case": "multi_agent_support",
+      "mode": "agent",
+      "fault": "none",
+      "confidence": "Medium",
+      "score": 0.69,
+      "findings": 7,
+      "sources": 5,
+      "grounded": 1.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "has_findings": true,
+        "min_sources": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 211.6,
+      "tool_calls": 23,
+      "llm_calls": 17,
+      "cost": 0.0097,
+      "short_answer": "Multi-agent architectures can boost scalability, modularity, specialization, speed, adaptability, accuracy, and fault tolerance for customer support automation, but they also bring higher coordination overhead, complexity, resource consumption, and operational costs compared to simpler single-agent solutions.",
+      "trace": "traces\\20261030-103608.jsonl"
+    },
+    {
+      "case": "multi_agent_support",
+      "mode": "baseline",
+      "fault": "n/a",
+      "confidence": "Medium",
+      "score": 0.6,
+      "findings": 6,
+      "sources": 5,
+      "grounded": 0.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "has_findings": true,
+        "min_sources": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 3.5,
+      "tool_calls": 0,
+      "llm_calls": 1,
+      "cost": 0.0005,
+      "short_answer": "A multi\u2011agent architecture can improve scalability, specialization, and fault tolerance in automated customer support, but it also introduces higher system complexity, coordination overhead, and integration challenges that may offset those benefits.",
+      "trace": "traces\\20261030-104417.jsonl"
+    },
+    {
+      "case": "memory_approaches",
+      "mode": "agent",
+      "fault": "none",
+      "confidence": "Medium",
+      "score": 0.69,
+      "findings": 8,
+      "sources": 2,
+      "grounded": 1.0,
+      "leaked": false,
+      "checks": {
+        "completed": true,
+        "has_findings": true,
+        "min_sources": true
+      },
+      "invalid": false,
+      "passed": true,
+      "latency_s": 111.2,
+      "tool_calls": 17,
+      "llm_calls": 10,
+      "cost": 0.0052,
+      "short_answer": "The summarising step failed, so the verified evidence is listed below without synthesis.",
+      "trace": "traces\\20261030-104430.jsonl"
+    },
+    {
+      "case": "memory_approaches",
+      "mode": "baseline",
+      "fault": "n/a",
+      "confidence": "Low",
+      "score": 0.0,
+      "findings": 0,
+      "sources": 0,
+      "grounded": null,
+      "leaked": false,
+      "checks": {
+        "completed": false,
+        "has_findings": false,
+        "min_sources": false
+      },
+      "invalid": true,
+      "passed": false,
+      "latency_s": 0.0,
+      "tool_calls": 0,
+      "llm_calls": 0,
+      "cost": 0.0,
+      "short_answer": "Insufficient verified evidence to answer this question reliably.",
+      "trace": "traces\\20261030-104632.jsonl"
+    }
+  ]
+}
