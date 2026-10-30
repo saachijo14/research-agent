@@ -5,7 +5,7 @@ A small, production-minded research agent. You ask a research question; it plans
 source-backed answer with a confidence level computed from the evidence. If the evidence is not there, it says so
 instead of guessing.
 
-- Demo video: `<paste link here>`
+- Demo video: [`https://drive.google.com/file/d/1FUBlCvqVeXrbR2oxbFuZCFyVljLDoY46/view?usp=sharing`](https://drive.google.com/file/d/1FUBlCvqVeXrbR2oxbFuZCFyVljLDoY46/view?usp=sharing)
 - Evaluation: [EVAL.md](EVAL.md) (8 test cases, agent vs. non-agentic baseline, failures found)
 - Sample outputs: [samples/](samples/)
 
