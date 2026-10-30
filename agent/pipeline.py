@@ -12,8 +12,8 @@ from agent.synthesizer import baseline_answer, insufficient_answer, synthesize
 from agent.trace import Tracer
 
 # USD per 1M tokens. Set these to your model's pricing (defaults are gpt-4o-mini-style numbers).
-PRICE_IN_PER_M = 0.15
-PRICE_OUT_PER_M = 0.60
+PRICE_IN_PER_M = 0.0
+PRICE_OUT_PER_M = 0.0
 
 
 @dataclass
