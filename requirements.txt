@@ -7,3 +7,5 @@ rich
 pytest
 pyyaml
 rapidfuzz
+fastapi
+uvicorn
