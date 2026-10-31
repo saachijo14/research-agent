@@ -53,11 +53,15 @@ def compute_confidence(claims: list[Claim], sub_questions: list[SubQuestion]) ->
     score = sum(WEIGHTS[k] * v for k, v in parts.items())
 
     web = [c for c in verified if not is_primary(c)]
-    if web and sum(1 for c in web if c.verdict != "untested") / len(web) < 0.25:
+    if web and sum(1 for c in web if c.verdict != "untested") / len(web) < 0.5:
         score = min(score, 0.69)   # too few web claims were actually challenged
 
     if len({c.source_url for c in usable}) < 2:
         score = min(score, 0.35)   # one source can never justify more than Low confidence
+
+    web = [c for c in verified if not is_primary(c)]
+    if web and sum(1 for c in web if c.verdict != "untested") / len(web) < 0.5:
+        score = min(score, 0.69)   # fewer than half of the web claims were challenged: cannot be High
 
     # Hard caps: thin or lopsided evidence can never look confident.
     if len(usable) < 3:
